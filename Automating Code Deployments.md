@@ -13,7 +13,7 @@ Artifacts that CodePipeline uses to deploy and update the website application wi
 <img width="434" alt="image" src="https://github.com/user-attachments/assets/00160c32-5a55-4294-8112-7b2c9cd04199" />
 
 <h2>Lab overview and objectives</h2>
-In this lab, I will create an AWS CodeCommit repository and an AWS CodePipeline pipeline. I will configure the pipeline to automatically apply updates to the café business website as changes are saved to the repository.
+In this lab, I will create an AWS CodeCommit repository and CodePipeline pipeline. I will configure the pipeline to automatically apply updates to the café business website as changes are saved to the repository.
 
 What I Learned:
 
