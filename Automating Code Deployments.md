@@ -178,3 +178,143 @@ The following image shows the comment text box.
 
 Now that I have created a CodeCommit repository to host and manage code changes, I can use it as a source to automate publishing updates to the café website. 
 
+<h2>Task 3: Creating a pipeline to automate website updates</h2>
+So far, you have been running commands from VS Code IDE to update the code in the S3 bucket for the website. In this task, you will configure a CI/CD pipeline by using CodePipeline to automate the website updates. The pipeline will use the code in your CodeCommit repository to deploy changes to the website's S3 bucket.
+       
+Return to the VS Code IDE.
+
+In the Explorer section, expand Environment, which is located in the upper-left corner. 
+
+Expand the resources folder, and open the file named cafe_website_front_end_pipeline.json
+
+<img width="845" alt="image" src="https://github.com/user-attachments/assets/3ea930d5-ce69-4442-8885-6bd1c53271dd" />
+
+This file defines configuration that will be used to deploy my new pipeline. Review the following code snippets to understand how the pipeline is configured.
+
+The following lines declare the AWS Identity and Access Management (IAM) role that will be associated with the pipeline.
+
+      "pipeline": {
+       "roleArn": "arn:aws:iam::<FMI_1>:role/RoleForCodepipeline",
+
+The following code snippet defines the Source that my pipeline will use to create and update my application. In this case, the source is my CodeCommit repository, front_end_website. Note that the pipeline will be configured to use the main branch.
+      
+      {
+         "name": "Source",
+         "actions": [
+          {
+            "inputArtifacts": [],
+            "name": "Source",
+            "actionTypeId": {
+              "category": "Source",
+              "owner": "AWS",
+              "version": "1",
+              "provider": "CodeCommit"
+            },
+            "outputArtifacts": [
+              {
+                "name": "MyApp"
+              }
+            ],
+            "configuration": {
+              "RepositoryName": "front_end_website",
+              "BranchName": "main"
+            },
+            "runOrder": 1
+          }
+        ]
+      }
+
+The following section of code defines the Deploy stage. The deployment will update code in Amazon S3. The configuration settings define details about the deployment target. In this case, this section defines the S3 bucket name, configures files to be extracted from a .zip file, and sets a caching policy. 
+            
+            {
+                "name": "Deploy",
+                
+                "actions": [
+                    {
+                        "inputArtifacts": [
+                            {
+                                "name": "MyApp"
+                            }
+                        ],
+                        "name": "CafeWebsite",
+                        "actionTypeId": {
+                            "category": "Deploy",
+                            "owner": "AWS",
+                            "version": "1",
+                            "provider": "S3"
+                    },
+                        "outputArtifacts": [],
+                        "configuration": {
+                            "BucketName": "<FMI_2>",
+                            "Extract": "true",
+                            "CacheControl": "max-age=14"
+                        },
+                        "runOrder": 1
+                    }
+                ]
+            }
+
+The final section of the code defines the artifactStore. This is the S3 bucket where CodePipeline artifacts will be stored. 
+     
+      "artifactStore": {
+              "type": "S3",
+              "location": "codepipeline-us-east-1-<FMI_1>-website"
+          },
+          "name": "cafe_website_front_end_pipeline",
+          "version": 1
+      }
+
+<h4>Update the cafe_website_front_end_pipeline.json file:</h4>
+
+Replace the two <FMI_1> placeholders with my AWS account ID.
+
+Note: To find your account ID, run the following command: aws  sts get-caller-identity
+
+Replace the <FMI_2> placeholder with the name of my bucket 
+
+Note: To retrieve a list of the S3 buckets in your account, run the following command: aws  s3 ls
+and  save
+
+ To create the pipeline, run the following commands. 
+
+       cd ~/environment/resources
+      aws codepipeline create-pipeline --cli-input-json file://cafe_website_front_end_pipeline.json
+
+<img width="862" alt="image" src="https://github.com/user-attachments/assets/21170fbb-3442-4266-9478-cc5b485e4c19" />
+
+Navigate to the CodePipeline console.
+      
+The Pipelines section lists the cafe_website_front_end_pipeline Pipeline.
+        
+Choose the cafe_website_front_end_pipeline hyperlink and review the pipeline status, as shown in the following image.
+
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/cbf9a631-3118-4bfb-bd5d-6545caef8a14" />
+
+<img width="928" alt="image" src="https://github.com/user-attachments/assets/69869bcb-893d-44f3-b0aa-65ce74329ed9" />
+
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/000b67c4-82a6-42f5-9fb4-08cf9371b763" />
+
+The pipeline should deploy successfully. Code was deployed using CodeCommit as the source and the café website S3 bucket as the target. This means the bucket should have been updated with the test.html file. 
+
+Verify the automated deployment.
+
+• Return to the VS Code IDE bash terminal.
+    
+• To find your Amazon CloudFront distribution domain name, run the following command:
+
+      aws cloudfront list-distributions --query DistributionList.Items[0].DomainName --output text
+
+Update the following URL by replacing <cloudfront_domain> with the value that was returned by the previous command: https://<cloudfront_domain>/test.html
+      
+The updated URL is similar to https://aaabbb111222.cloudfront.net/test.html.
+
+• Open a new browser tab, and enter the URL that you just created. 
+
+You reach a sample webpage similar to the following:
+
+<img width="619" alt="image" src="https://github.com/user-attachments/assets/820c4668-ec59-4179-b347-2eca47a62e9d" />
+
+Now, when I update the repository, the pipeline will automatically update my website.
+Next, I will clone the repository to my VS Code IDE. This will provide the ability to edit the files locally and synchronize with my centralized CodeCommit repository.
+
+<h2>Task 4: Cloning a repository in VS Code IDE</h2>
