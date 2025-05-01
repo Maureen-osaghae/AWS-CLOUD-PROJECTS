@@ -409,6 +409,70 @@ Now that have have learned to manage your local repository and synchronize it wi
 
 In this task, I will first remove the test.html file. Then, I will update the local repository with the café website code. Finally, verify that my pipeline built the café website on S3. I will also verify that max-age is set to 14 to confirm that the latest changes are being applied and the caching was updated.
 
+Return to the VS Code IDE tab. On the explorer, Under Environment folder, expand the front_end_website folder and delete the test.html file.
+
+In the VS Code IDE bash terminal, run the following commands. The second command will copy all of the contents under the website folder to the front_end_website folder.
+      
+      cd ~/environment
+      cp -r ./resources/website/* front_end_website
+      
+To delete the website folder, so that there is one source of truth, run the following command.
+
+      rm -r ./resources/website
+
+Commit changes. 
+
+Choose the Branch icon (now it is showing number of new files to be pushed).
+   
+• Enter the following commit message: Providing the website
+
+• On the Commit button, choose more actions which is located to the right.
+
+• Choose Commit & Push, then choose Yes. 
+
+• To the right of front_end_website, choose the options icon and choose Commit.
+
+• The Source control Graph in the lower pane shows history of changes done to the repository. 
+
+<img width="631" alt="image" src="https://github.com/user-attachments/assets/875f1bfa-b156-42c2-80e6-3550c4905043" />
+
+Return to the browser tab that shows the test.html page.
+
+Update the URL by removing test.html from the address, and then submit the updated URL.
+
+The browser now displays the café website.
+
+<img width="956" alt="image" src="https://github.com/user-attachments/assets/dc7ecf92-0a8d-420e-adaa-0c8322a639c9" />
+
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/7d9da6ce-1069-42b0-8d13-d7313f571b9f" />
+
+<img width="956" alt="image" src="https://github.com/user-attachments/assets/be2e5dc0-2f6a-4b8c-8b97-53df22cc4ce1" />
+
+Now, I will verify that my pipeline applied the cache-control setting, which was configured in Task 3.
+   
+• Remain on the café website page, and open your browser's developer tools.
+     
+Note: To open the developer tools, open your browser's context menu (right-click) and choose Inspect.
+    
+• Choose the Network tab, and then refresh the webpage.
+    
+• Choose pastries.js.
+   
+• Choose the Headers tab, and locate the Response Headers section, as shown in the following image.
+
+<img width="434" alt="image" src="https://github.com/user-attachments/assets/d4c5453a-dff6-434d-8c30-4ecf8314bf74" />
+
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/228b2b63-63ee-42d1-9d92-e47d570a4407" />
+
+Notice that the cache-control value is set to max-age=14, which indicates that pipeline updated the cache settings. This means that the website is being built from the most recent repository update. Note: If cache-control is set to max-age=0, the pipeline might still be applying the update to the S3 bucket. Wait a few seconds, refresh the page, and choose pastries.js again.
+
+I have moved the codebase to a secure and scalable managed service. I have also ensured that the website will stay up to date with the latest improvements.
+
+<h3>Conclusion</h3>
+
+This is a big win for the café business! Now that the codebase is centralized, the café can bring in more developers to collaborate and enhance the site as the business grows. I don't have to remember to update the website, because the CI/CD pipeline will automatically deploy changes to the website. I can track versioning and implement a code approval process. If any issues arise from updates, I can use CodeCommit to review commit logs to trace changes and resolve code bugs.
+
+
 
 
 
