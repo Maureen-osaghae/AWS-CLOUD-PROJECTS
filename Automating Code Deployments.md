@@ -318,3 +318,102 @@ Now, when I update the repository, the pipeline will automatically update my web
 Next, I will clone the repository to my VS Code IDE. This will provide the ability to edit the files locally and synchronize with my centralized CodeCommit repository.
 
 <h2>Task 4: Cloning a repository in VS Code IDE</h2>
+
+It's more efficient to edit code in an IDE than it is to use the CodeCommit console. In this task, I will clone a local copy of the repository in my VS Code IDE work environment.
+Retrieve the SSH clone URL for my repository.
+
+◦ Navigate to the CodeCommit console.
+
+◦ In the navigation pane, choose Repositories.
+
+◦ In the Clone URL column, choose Clone HTTPS(GRC) to copy the URL to my clipboard.
+
+ Note: URL should look similar to codecommit::us-east-1://front_end_website
+
+Clone your repository using the SSH URL.
+    
+• Return to the VS Code IDE terminal.
+   
+• Run the following command to clone the repository to my VS code IDE, replace the <<Clone URL>> with the value I copied.
+
+      cd ..
+      git clone <<Clone URL>>
+
+<img width="181" alt="image" src="https://github.com/user-attachments/assets/47eccae2-1342-430f-9940-b28322aa0da0" />
+
+<img width="856" alt="image" src="https://github.com/user-attachments/assets/7263e30b-28a1-47af-9d14-9893542c7302" />
+
+I now have a local clone of my repository that can be edited using my IDE. Next, I will lean how to manage my local copy of the repository and synchronize changes with CodeCommit.
+
+<h2>Task 5: Exploring the Git integration with the VS Code IDE</h2>
+
+I can interact with the repository through the command line, but VS Code provides Git integration in the IDE to make it easier to manage my repository. In this task, I will perform simple repository management operations by using this integration. 
+
+◦ Locate the branch icon, which is located in the lower-left corner of the IDE.
+
+▪ Source Control option is opened.
+
+◦ From the top, choose three dots to the right of SOURCE CONTROL.
+
+◦ From the menu displayed, choose Source Control Repositories
+
+◦ Your repository front_end_website is displayed.
+ The IDE 
+ is currently set up to communicate with the main branch.
+
+Explore and edit the repository files.
+
+Remember that the repository was cloned to the local folder environment/front_end_website. I can open repository files in my IDE to view and edit them. From the explorer menu, expand the front_end_website folder to reveal the test.html file, which is shown in the following image.
+
+<img width="806" alt="image" src="https://github.com/user-attachments/assets/edbd33b9-3740-46f8-a987-866357dc80f4" />
+
+Open the test.html file and edit the page title on line 4. Replace the current title with the following text: Best test page ever
+
+Save changes.
+
+Commit changes to the main branch
+
+◦ Open the Source Control.
+
+ Note: You don't have to use the IDE integration. You could also use Git from the command line. For example, if you enter the following command, you should find the test.html file listed in the output.
+
+      cd ~/environment/front_end_website
+      git status
+
+• On the Commit button, choose more actions which is located to the right.
+
+• Choose Commit & Push, then choose Yes. 
+    
+• This will push the code and trigger the code pipeline which deploys new version of the file to website.
+
+Review the changes in CodeCommit.
+
+• Navigate to the CodeCommit console.
+
+• Choose the front_end_website repository link.
+
+• In the navigation pane, under Repositories, choose Commits.
+
+• Choose the link for the commit ID with the most recent commit date.
+
+• Go to the test.html section, and notice the highlighted lines, which are shown in the following image.
+
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/29667415-cc51-420f-93d5-1abd9db31475" />
+
+The first highlighted line is preceded by a minus sign (-) and highlighted in red. This shows the contents of the line before the change was made. The second highlighted line is preceded by a plus sign (+) and highlighted in green. This line shows the current content of the line.
+Great work! I have confirmed that VS Code IDE is able to push changes to your CodeCommit repository.
+       
+Now that have have learned to manage your local repository and synchronize it with CodeCommit, it's time to update the repository with the actual café website code.
+
+<h2>Task 6: Pushing the café website code to CodeCommit </h2>
+
+In this task, I will first remove the test.html file. Then, I will update the local repository with the café website code. Finally, verify that my pipeline built the café website on S3. I will also verify that max-age is set to 14 to confirm that the latest changes are being applied and the caching was updated.
+
+
+
+
+
+
+
+
+    
