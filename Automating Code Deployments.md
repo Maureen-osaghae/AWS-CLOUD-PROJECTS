@@ -141,3 +141,40 @@ In the Commit changes to main section, configure the following settings:
 ◦ Email address: Enter the same email address that you used in Task 1.
 
 ◦ Commit message: Enter This is my first commit. 
+
+<img width="764" alt="image" src="https://github.com/user-attachments/assets/9900e225-05f4-45a8-bff4-98f1d9cd9fa1" />
+
+Choose Commit changes.
+
+<img width="958" alt="image" src="https://github.com/user-attachments/assets/b1788417-cc3f-4b8c-9496-3e8ef92bcce2" />
+
+◦ Review commit.
+
+◦ In the left navigation pane, under Repositories, choose Commits.
+
+◦ Choose the link for the commit ID. Only one should be listed.
+
+◦ Review the information about this commit.
+
+ Note: On this page, you see the author of the commit, the commit message, the date of the commit, and the name and contents of the file that was added. 
+
+<img width="768" alt="image" src="https://github.com/user-attachments/assets/6ad9eaeb-ead8-4b9e-9319-d4fe9f1d1659" />
+
+Add a comment to the committed file.
+
+• In the test.html section, hover on the plus sign (+) icon on line 4.
+
+• To the left of the line number, a comment icon appears. Choose the icon.
+      
+Note: The comment icon is a small box that contains an ellipsis.
+    
+• In the New comment text box, enter: I must add a better title at some point.
+      
+The following image shows the comment text box.
+
+<img width="715" alt="image" src="https://github.com/user-attachments/assets/2f2bcb90-9fa2-463b-8d54-9d21300e828f" />
+
+<img width="584" alt="image" src="https://github.com/user-attachments/assets/53457dcc-119e-435c-ada9-0847006f89b4" />
+
+Now that I have created a CodeCommit repository to host and manage code changes, I can use it as a source to automate publishing updates to the café website. 
+
