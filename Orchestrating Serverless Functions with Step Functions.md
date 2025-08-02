@@ -257,10 +257,16 @@ The Workflow Studio appears for step 2.
 <img width="959" height="409" alt="image" src="https://github.com/user-attachments/assets/5da9c402-9a3b-49d1-b501-ed62cba8901f" />
 
 Design the workflow.
-    • In the search box under Step 2: Design workflow, enter SNS
-    • Drag the Amazon SNS Publish object onto the canvas, to the box labeled Drag first state here.
-    • In the SNS Publish pane that displays, configure the following:
-        ◦ Topic: Choose the ARN of the EmailReport SNS topic that you created earlier.
+   
+• In the search box under Step 2: Design workflow, enter SNS
+    
+• Drag the Amazon SNS Publish object onto the canvas, to the box labeled Drag first state here.
+    
+• In the SNS Publish pane that displays, configure the following:
+        
+◦ Topic: Choose the ARN of the EmailReport SNS topic that you created earlier.
+
+
 
 
 
