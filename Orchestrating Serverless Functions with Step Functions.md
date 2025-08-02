@@ -233,7 +233,37 @@ Choose the Trust relationships tab. This role allows the Step Functions service 
 
 <img width="749" height="257" alt="image" src="https://github.com/user-attachments/assets/64b424d5-2620-402c-a892-7cef97bd5588" />
 
-<span>Note</span> In this lab environment, AWS cannot grant me permissions to create an IAM role. Therefore, later in this lab, I will observe the details for other IAM roles that have already been created for me. However, in an AWS account where I have more permissions to use the IAM service, I could create the IAM role that I just observed, attach the managed policy, and also create the custom IAM policy and attach it to the role.
+<span>Note</span> in this lab environment, AWS cannot grant me permissions to create an IAM role. Therefore, later in this lab, I will observe the details for other IAM roles that have already been created for me. However, in an AWS account where I have more permissions to use the IAM service, I could create the IAM role that I just observed, attach the managed policy, and also create the custom IAM policy and attach it to the role.
+
+<h2>Create a state machine to send an email</h2> 
+Begin to create a Step Functions state machine. Navigate to the Step Functions console.
+
+<img width="902" height="291" alt="image" src="https://github.com/user-attachments/assets/e1308d66-990a-4952-b085-9d925ed46165" />
+
+In the left navigation pane, choose State machines.
+
+<img width="887" height="262" alt="image" src="https://github.com/user-attachments/assets/aba5e51b-933e-44ab-a739-7566c841686f" />
+
+◦ Choose Create state machine and configure the following for step 1:
+           
+▪ Choose a template: Choose Blank.
+
+Choose Select.
+
+<img width="940" height="411" alt="image" src="https://github.com/user-attachments/assets/7055abbc-bbde-488d-8b9f-fb1478336550" />
+
+The Workflow Studio appears for step 2.
+
+<img width="959" height="409" alt="image" src="https://github.com/user-attachments/assets/5da9c402-9a3b-49d1-b501-ed62cba8901f" />
+
+Design the workflow.
+    • In the search box under Step 2: Design workflow, enter SNS
+    • Drag the Amazon SNS Publish object onto the canvas, to the box labeled Drag first state here.
+    • In the SNS Publish pane that displays, configure the following:
+        ◦ Topic: Choose the ARN of the EmailReport SNS topic that you created earlier.
+
+
+
 
 
 
