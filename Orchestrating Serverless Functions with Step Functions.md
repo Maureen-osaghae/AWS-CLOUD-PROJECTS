@@ -264,7 +264,7 @@ Design the workflow.
     
 • In the SNS Publish pane that displays, configure the following:
         
-◦ Topic: Choose the ARN of the EmailReport SNS topic that you created earlier.
+◦ Topic: Choose the ARN of the EmailReport SNS topic that I created earlier.
 
 
 
