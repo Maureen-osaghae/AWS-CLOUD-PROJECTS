@@ -73,6 +73,58 @@ Downloaded and extract the files that I need for this lab.
 
 <img width="505" height="394" alt="image" src="https://github.com/user-attachments/assets/3526041d-9911-4820-ae9a-f5b625d97dae" />
 
+Run a script to the configure VS Code IDE and re-create the work that I completed in earlier labs into this AWS account. Set permissions on the script so that I can run it, and then run it:
+          
+          chmod +x ./resources/setup.sh && ./resources/setup.sh
+       
+<h2>Analysis:</h2> The CloudFormation template that ran when I started this lab created resources in the AWS account. The script I just ran also created resources. Between the two of them, the following resources have been created to replicate what I built in previous labs:
+
+◦ An S3 bucket with an associated bucket policy. The bucket contains the café website code.
+
+◦ An Amazon DynamoDB table populated with menu data.
+
+◦ A REST API configured using Amazon API Gateway.
+
+◦ A Lambda function that retrieves data from DynamoDB when invoked.
+
+◦ A Memcached cluster that caches supplier data from Amazon Aurora Serverless for the suppliers application.
+
+◦ A café/node-web-app Docker image, which is stored in the Amazon Elastic Container Registry (Amazon ECR).
+
+◦ An AWS Elastic Beanstalk environment and application that runs an Amazon Elastic Compute Cloud (Amazon EC2) instance named MyEnv. The EC2 instance hosts a Docker container created from the Docker image that is stored in Amazon ECR.
+        
+◦ An Aurora Serverless database running MySQL on Amazon RDS, which contains the supplierdb database, which stores coffee supplier information.
+
+ Verify the version of AWS CLI installed. In the VS Code IDE Bash terminal (at the bottom of the IDE), run the following command:
+          
+          aws --version
+The output should indicate that version 2 is installed.
+          
+Verify that the SDK for Python is installed. Run the following command:
+          
+          pip3 show boto3
+
+I Verify that I can access the café website.
+        
+◦ Navigate to the Amazon S3 console.
+
+◦ Choose the link for the bucket that has -s3bucket in the name.
+        
+◦ Open the index.html file.
+
+<img width="777" height="100" alt="image" src="https://github.com/user-attachments/assets/57415e5e-1634-4529-9376-65138b4b5bc9" />
+
+In the Object overview section, open the Object URL in a new browser tab.
+
+<img width="791" height="134" alt="image" src="https://github.com/user-attachments/assets/d40be8fe-1c03-46a7-a9ac-2f9b8b3ee589" />
+
+The café website displays. 
+
+<img width="959" height="451" alt="image" src="https://github.com/user-attachments/assets/9c64702a-2a63-4f92-9c0b-64c7fb5bf24d" />
+
+
+
+
 
 
        
