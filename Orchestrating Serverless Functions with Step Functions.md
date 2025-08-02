@@ -203,6 +203,42 @@ The subject and message body should match the details that you configured in the
 
 <img width="734" height="332" alt="image" src="https://github.com/user-attachments/assets/8b0a828b-72d5-41ad-a8b2-b7d8abd4e7b3" />
 
+<h2>Task 3: Creating a Step Functions state machine</h2>
+In this task, I will create a Step Functions state machine that can send an email notification by using the SNS topic.
+The Step Functions state machine will need permissions to access the Lambda service. Start by looking at an AWS Identity and Access Management (IAM) role that has already been created for me for this purpose.
+
+<h3>Review the IAM role for Step Functions</h3>
+      
+Analyze the details of the IAM role that Step Functions will use.
+
+◦ Navigate to the IAM console.
+
+◦ Review the details of the RoleForStepToCreateAReport IAM role.
+
+▪ In the left navigation pane, choose Roles.
+            
+▪ In the search box under Roles, search for and choose the RoleForStepToCreateAReport role.
+
+<img width="811" height="227" alt="image" src="https://github.com/user-attachments/assets/9bfdaf06-fcc8-4079-aba7-dd93e31e683d" />
+
+On the Permissions tab, expand the stepPolicyForCreateReport policy, and choose {} JSON. I notice that this role allows all Lambda and log actions on all resources.
+
+<img width="791" height="347" alt="image" src="https://github.com/user-attachments/assets/6eff6455-c077-4ffd-9ab5-f711e1245e42" />
+
+▪ Expand the AWSLambdaRole managed policy, which is also attached to the role. I also notice that this role allows the lambda:InvokeFunction action on all resources. This will allow me to test the function from the Lambda console.
+
+<img width="838" height="350" alt="image" src="https://github.com/user-attachments/assets/cf48cad7-3d81-4a1b-8032-22eb3a1b233f" />
+
+Choose the Trust relationships tab. This role allows the Step Functions service to assume this role (as indicated by the states.amazonaws.com service endpoint).
+
+<img width="749" height="257" alt="image" src="https://github.com/user-attachments/assets/64b424d5-2620-402c-a892-7cef97bd5588" />
+
+<span>Note</span> In this lab environment, AWS cannot grant me permissions to create an IAM role. Therefore, later in this lab, I will observe the details for other IAM roles that have already been created for me. However, in an AWS account where I have more permissions to use the IAM service, I could create the IAM role that I just observed, attach the managed policy, and also create the custom IAM policy and attach it to the role.
+
+
+
+
+
 
 
 
