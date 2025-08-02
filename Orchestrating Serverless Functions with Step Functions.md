@@ -122,6 +122,102 @@ The café website displays.
 
 <img width="959" height="451" alt="image" src="https://github.com/user-attachments/assets/9c64702a-2a63-4f92-9c0b-64c7fb5bf24d" />
 
+<h2>Task 2: Configuring an SNS topic and subscribing to it</h2>
+In this task, I will configure an SNS topic that can be used to alert Frank when a requested report is available. 
+The following diagram shows the solution architecture for this lab, with the part that I will build in tasks 2 and 3 highlighted.
+
+<img width="650" height="284" alt="image" src="https://github.com/user-attachments/assets/3888d14f-8bb0-46a0-8f10-a8409af3a83a" />
+
+Create an SNS topic for email notification.
+
+◦ Navigate to the Amazon SNS console.
+
+<img width="953" height="336" alt="image" src="https://github.com/user-attachments/assets/2c1e8111-3f85-4104-b82b-5c0b0a71a32d" />
+
+In the left navigation pane, choose Topics.
+
+<img width="931" height="232" alt="image" src="https://github.com/user-attachments/assets/29d94af2-dfbf-4143-88fd-4141ca625a16" />
+
+◦ Choose Create topic and configure the following:
+
+▪ Type: Choose Standard.
+
+▪ Name: Enter EmailReport
+
+▪ Expand the Access policy - optional section.
+            
+▪ Define who can publish messages to the topic: Choose Everyone.
+           
+▪ Define who can subscribe to this topic: Choose Everyone.
+
+◦ At the bottom of the page, choose Create topic.
+
+<img width="862" height="417" alt="image" src="https://github.com/user-attachments/assets/f1b3d4a7-add7-4272-bdd5-bcd99ca31176" />
+
+Create an email subscription to the SNS topic.
+
+◦ Choose Create subscription and configure the following:
+
+▪ Topic ARN: Notice that the Amazon Resource Number (ARN) of the topic that you just created is already filled in.
+
+▪ Protocol: Choose Email.
+
+<img width="959" height="302" alt="image" src="https://github.com/user-attachments/assets/876c9a87-e9ea-4325-b7b7-2a6253982262" />
+
+<h3>Endpoint:</h3> Enter an email address where I can receive emails during this lab. (In the café story, Sofía would enter Frank's email address.)
+        
+◦ Choose Create subscription.
+
+<img width="770" height="361" alt="image" src="https://github.com/user-attachments/assets/dd85263d-bf58-4a45-800d-0aeac90a00fb" />
+
+Check my email and confirm the subscription.
+
+◦ Check email for a message from AWS Notifications.
+
+◦ In the email body, choose the Confirm subscription link.
+
+◦ A webpage opens and displays a message that the subscription was successfully confirmed.
+
+<img width="484" height="320" alt="image" src="https://github.com/user-attachments/assets/46038544-dec2-4872-9395-71dc5e5c6fc4" />
+
+<img width="818" height="152" alt="image" src="https://github.com/user-attachments/assets/e68aa2f6-fbfe-4bc3-aee5-74d91e17fac8" />
+
+Publish a test message to confirm that messages can be published to the EmailReport SNS topic.
+
+◦ Return to the Amazon SNS console, and return to the EmailReport topic page. Tip: In the breadcrumbs at the top of the page, choose EmailReport.
+        
+◦ Choose Publish message and configure the following:
+        
+▪ Subject - optional: Enter Test
+            
+▪ Message body: Enter Hello! This is a test.
+        
+◦ At the bottom of the page, choose Publish message.
+
+<img width="959" height="353" alt="image" src="https://github.com/user-attachments/assets/4ea685a5-3f6e-4e12-94b3-5349d3e32b08" />
+
+<img width="765" height="337" alt="image" src="https://github.com/user-attachments/assets/448997e3-bdf0-4b4d-90a1-c01770064055" />
+
+Confirm that I received the message at my email address.
+The subject and message body should match the details that you configured in the previous step.
+
+<img width="734" height="332" alt="image" src="https://github.com/user-attachments/assets/8b0a828b-72d5-41ad-a8b2-b7d8abd4e7b3" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
