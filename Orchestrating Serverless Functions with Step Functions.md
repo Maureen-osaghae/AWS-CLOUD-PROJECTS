@@ -45,6 +45,38 @@ Now, lets explain the diagram.
 
 In this lab, I will again play the role of Sofía to build the functionality described. Let's get started!
 
+<h2>Task 1: Preparing the development environment</h2>
+In this first task, I will configure your Visual Studio Code Integrated Development Environment (VS Code IDE). I will also run the script to re-create the work I completed in previous labs.
+
+Before proceeding to the next step, verify that the AWS CloudFormation stack creation process for the lab has successfully completed.
+
+◦ In a new browser tab, navigate to the CloudFormation console.
+        
+◦ In the left navigation pane, choose Stacks.
+       
+◦ For the stack with "ACD_2.0" in the Description column, verify that the Status says CREATE_COMPLETE. 
+
+<img width="959" height="427" alt="image" src="https://github.com/user-attachments/assets/3ef5c665-c72e-4016-b2b2-c2f3107fbf3f" />
+
+Connect to the VS Code IDE.
+<img width="854" height="398" alt="image" src="https://github.com/user-attachments/assets/42287666-97c0-4dbf-b8cf-945626b63940" />
+
+Downloaded and extract the files that I need for this lab.
+        
+◦ In the VS Code IDE bash terminal, run the following command:
+
+    wget https://aws-tc-largeobjects.s3.us-west-2.amazonaws.com/CUR-TF-200-ACCDEV-2-44869/11-lab-step/code.zip -P /home/ec2-user/environment
+          
+◦ The code.zip file is downloaded to the the VS Code IDE. The file is listed in the left navigation pane.  Extract the file:
+         
+          unzip code.zip
+
+<img width="505" height="394" alt="image" src="https://github.com/user-attachments/assets/3526041d-9911-4820-ae9a-f5b625d97dae" />
+
+
+
+       
+
 
 
    
