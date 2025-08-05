@@ -266,6 +266,26 @@ Design the workflow.
         
 ◦ Topic: Choose the ARN of the EmailReport SNS topic that I created earlier.
 
+◦ Notice that Message is set to Use state input as message, as shown in the following image.
+
+Choose {} Code in the upper part of the screen. 
+The generated Amazon States Language (ASL) code for the state machine displays, as shown in the following image.
+<img width="823" height="350" alt="image" src="https://github.com/user-attachments/assets/ed027ef9-8185-4e8e-9d10-1e7acabab74f" />
+
+<img width="600" height="424" alt="image" src="https://github.com/user-attachments/assets/c451e22b-42f3-408e-8af9-13308812adfc" />
+
+Choose Config and configure the following:
+
+◦ State machine name: Enter MyStateMachine
+
+◦ Execution role: Choose Choose an existing role.
+
+◦ Existing roles: Choose RoleForStepToCreateAReport.
+          Note: This is the role that I reviewed earlier.
+        ◦ Log level: Choose ALL.
+    • At the top of the page, choose Create.
+
+
 
 
 
